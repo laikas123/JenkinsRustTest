@@ -3,20 +3,22 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'cd myapp'
-        sh 'cargo test'
+        // sh 'cd myapp'
+        // sh 'cargo test'
+        sh 'pwd'
+        sh 'ls'
       }
     }
-    stage('Build') {
-      steps {
-        sh 'cargo build'
-      }
-    }
-    stage('Run'){
-      steps {
-        sh 'target/debug/myapp'
-        sh 'cargo clean'
-      }
-    }
+    // stage('Build') {
+    //   steps {
+    //     sh 'cargo build'
+    //   }
+    // }
+    // stage('Run'){
+    //   steps {
+    //     sh 'target/debug/myapp'
+    //     sh 'cargo clean'
+    //   }
+    // }
   }
 }
