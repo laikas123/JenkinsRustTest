@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        // sh 'cd myapp'
+        sh 'cd myapp'
         // sh 'cargo test'
         sh 'pwd'
         sh 'ls'
