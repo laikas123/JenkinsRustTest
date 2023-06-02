@@ -3,24 +3,26 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        
-        // sh 'cargo test'
         dir('myapp') {
           sh 'pwd'
           sh 'ls'
+          sh 'cargo test'
         }
       }
     }
-    // stage('Build') {
-    //   steps {
-    //     sh 'cargo build'
-    //   }
-    // }
-    // stage('Run'){
-    //   steps {
-    //     sh 'target/debug/myapp'
-    //     sh 'cargo clean'
-    //   }
-    // }
+    stage('Build') {
+      steps {
+        dir('myapp') {
+          sh 'cargo build'
+        }
+      }
+    }
+    stage('Run'){
+      steps {
+        dir('myapp/target/debug/') {
+          sh './myapp'
+        }
+      }
+    }
   }
 }
