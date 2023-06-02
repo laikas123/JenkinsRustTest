@@ -3,10 +3,12 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'cd myapp'
+        
         // sh 'cargo test'
-        sh 'pwd'
-        sh 'ls'
+        dir('scripts') {
+          sh 'pwd'
+          sh 'ls'
+        }
       }
     }
     // stage('Build') {
