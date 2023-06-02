@@ -5,7 +5,7 @@ pipeline {
       steps {
         
         // sh 'cargo test'
-        dir('scripts') {
+        dir('myapp') {
           sh 'pwd'
           sh 'ls'
         }
