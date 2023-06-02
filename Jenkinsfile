@@ -3,9 +3,19 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh '''
-          cargo --version
-        '''
+        sh 'cd myapp'
+        sh 'cargo test'
+      }
+    }
+    stage('Build') {
+      steps {
+        sh 'cargo build'
+      }
+    }
+    stage('Run'){
+      steps {
+        sh 'target/debug/myapp'
+        sh 'cargo clean'
       }
     }
   }
